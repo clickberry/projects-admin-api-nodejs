@@ -1,6 +1,4 @@
 var mongoose = require('mongoose');
-var error = require('clickberry-http-errors');
-
 var Schema = mongoose.Schema;
 
 var projectSchema = new Schema({
