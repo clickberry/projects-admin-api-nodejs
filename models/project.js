@@ -12,6 +12,7 @@ var projectSchema = new Schema({
     created: Date,
     isPrivate: Boolean,
     isHidden: Boolean,
+    deleted: Date,
     videos: [new Schema({
         contentType: String,
         uri: String,
@@ -20,4 +21,4 @@ var projectSchema = new Schema({
     }, {_id: false})]
 });
 
-var Project = module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('Project', projectSchema);
