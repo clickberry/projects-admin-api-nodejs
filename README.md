@@ -78,7 +78,7 @@ Gets all public projects from all users.
 | $filter    |  Filtering | *fields:* name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z and (name ge 'b' or name eq 'abc') |
 | $orderby    |  Sorting | *fields:* name, created | $orderby=name desc|
 | $top    | Quantity return entities. Max value is 100  | 0 < $top <= 100 | $top=30 |
-| $skip    | Quantity skip entities. Max value is 100   | 0 <= 100 | $skip=60 |
+| $skip    | Quantity skip entities. Max value is 100   | 0 < $skip <= 100 | $skip=60 |
 
 ### Response
 | HTTP       |      Value                                                         |
