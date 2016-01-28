@@ -72,6 +72,7 @@ Gets all public projects from all users.
 
 ### Query Param
 **{params}** - restricted version of OData protocol with one level brackets '(' ')' support. ([documentation](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)).
+
 | Param    | Description | Allowed Fields| Example | 
 |----------|-------------|---------------|---------|
 | $filter    |  Filtering | name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z and (name ge 'b' or name eq 'abc') |
