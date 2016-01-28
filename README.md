@@ -71,14 +71,14 @@ Gets all public projects from all users.
 | Authorization     | "JWT [accessToken]" with admin role|
 
 ### Query Param
-**{params}** - restricted version of OData protocol with one level brackets '(' ')' support. ([documentation](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)).
+**{params}** - restricted version of OData protocol with one level brackets '(' ')' support. ([OData documentation](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)).
 
 | Param    | Description | Allowed Values| Example | 
 |----------|-------------|---------------|---------|
-| $filter    |  Filtering | *fields:* name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z and (name ge 'b' or name eq 'abc') |
-| $orderby    |  Sorting | *fields:* name, created | $orderby=name desc|
-| $top    | Quantity return entities. Max value is 100  | 0 < $top <= 100 | $top=30 |
-| $skip    | Quantity skip entities. Max value is 100   | 0 < $skip <= 100 | $skip=60 |
+| $filter    |  Filtering | *fields:* name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z' and (name ge 'b' or name eq 'abc') |
+| $orderby    |  Sorting | *fields:* name, created | $orderby=created asc,name desc|
+| $top    | Quantity return entities. | 0 < $top <= 100 | $top=30 |
+| $skip    | Quantity skip entities. | 0 < $skip <= 100 | $skip=60 |
 
 ### Response
 | HTTP       |      Value                                                         |
