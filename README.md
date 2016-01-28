@@ -65,10 +65,15 @@ project-deletes | {projectId: *projectId*} | Project ID.
 Gets all public projects from all users.
 
 ### Request
+#### Header
+| Param   | Value |
+|----------|-------------|
+| Authorization     | "JWT [accessToken]" with admin role|
+
 ### Query Param
 **{params}** - restricted version of OData protocol with one level brackets '(' ')' support. ([documentation](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)).
 | Param    | Description | Allowed Fields| Example | 
-|----------|-------------|--|--|
+|----------|-------------|---------------|---------|
 | $filter    |  Filtering | name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z and (name ge 'b' or name eq 'abc') |
 | $orderby    |  Sorting | name, created | $orderby=name desc|
 | $top    | Quantity return entities. Max value is 100  | $top=30 |
@@ -87,7 +92,7 @@ Removes user project by id.
 #### Header
 | Param   | Value |
 |----------|-------------|
-| Authorization     | "JWT [accessToken]" |
+| Authorization     | "JWT [accessToken]" with admin role|
 
 ### Response
 | HTTP       |      Value                                                         |
