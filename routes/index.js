@@ -74,7 +74,7 @@ module.exports = function (passport) {
 
                     console.log(doc);
 
-                    bus.publishDeleteProject({projectId: req.params.projectId}, function () {
+                    bus.publishDeleteProject({id: req.params.projectId}, function () {
                         res.send();
                     });
                 });

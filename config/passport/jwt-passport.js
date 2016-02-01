@@ -13,19 +13,5 @@ module.exports = function (passport) {
             done(new error.Forbidden());
         }
     }));
-
-    //return function (req,res,next){
-    //    passport.authenticate('access-token', function(err, payload, info){
-    //        if(err){
-    //            return next(err);
-    //        }
-    //
-    //        if(payload.role=='admin'){
-    //            next();
-    //        }else{
-    //            next(new error.Forbidden());
-    //        }
-    //    });
-    //};
 };
 
