@@ -1,5 +1,5 @@
 var express = require('express');
-var moment=require('moment');
+var moment = require('moment');
 var config = require('clickberry-config');
 var QueryParser = require('clickberry-query-parser').QueryParser;
 var mongoDbProvider = require('clickberry-query-parser').mongoDbProvider;
@@ -8,7 +8,7 @@ var Projects = require('../models/project');
 
 var Bus = require('../lib/bus-service');
 var bus = new Bus({
-    mode: config.get('node:env'),
+    //mode: config.get('node:env'),
     address: config.get('nsqd:address'),
     port: config.get('nsqd:port')
 });
@@ -55,7 +55,7 @@ module.exports = function (passport) {
     router.delete('/:projectId',
         passport.authenticate('access-token', {session: false, assignProperty: 'payload'}),
         function (req, res, next) {
-            Projects.Update(
+            Projects.update(
                 {
                     _id: req.params.projectId,
                     deleted: {
@@ -68,12 +68,16 @@ module.exports = function (passport) {
                 {
                     upsert: false,
                     multi: false
-                }, function (err, doc) {
-                    if(err){
+                }, function (err) {
+                    if (err) {
                         return next(err);
                     }
 
                     bus.publishDeleteProject({id: req.params.projectId}, function () {
+                        if (err) {
+                            return next(err);
+                        }
+
                         res.send();
                     });
                 });
