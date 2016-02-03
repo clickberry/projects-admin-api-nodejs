@@ -38,10 +38,10 @@ module.exports = function (passport) {
             }
         }, mongoDbProvider).parse,
         function (req, res, next) {
-            console.log(req.queryData);
             Projects.find(req.queryData.query, null, {
                 sort: req.queryData.sort,
-                limit: req.queryData.limit || 10
+                limit: req.queryData.limit || 10,
+                skip: req.queryData.skip
             }, function (err, projects) {
                 if (err) {
                     return next(err);
@@ -55,7 +55,7 @@ module.exports = function (passport) {
     router.delete('/:projectId',
         passport.authenticate('access-token', {session: false, assignProperty: 'payload'}),
         function (req, res, next) {
-            Projects.findOneAndUpdate(
+            Projects.Update(
                 {
                     _id: req.params.projectId,
                     deleted: {
@@ -66,13 +66,12 @@ module.exports = function (passport) {
                     deleted: moment.utc()
                 },
                 {
-                    upsert: false
+                    upsert: false,
+                    multi: false
                 }, function (err, doc) {
                     if(err){
                         return next(err);
                     }
-
-                    console.log(doc);
 
                     bus.publishDeleteProject({id: req.params.projectId}, function () {
                         res.send();
