@@ -1,5 +1,5 @@
 # Dockerized Projects API
-Projects micro-service on Node.js. This a micro-service for link together videos, screenshots, images, metadata and etc.
+Projects administration micro-service on Node.js.
 
 * [Architecture](#architecture)
 * [Technologies](#technologies)
@@ -27,6 +27,7 @@ MONGODB_CONNECTION | mongodb://mongo_host:mongo_port/projects | MongoDB connecti
 TOKEN_ACCESSSECRET | MDdDRDhBOD*** | Access token secret.
 NSQD_ADDRESS | bus.yourdomain.com | A hostname or an IP address of the NSQD running instance.
 NSQD_PORT | 4150 | A TCP port number of the NSQD running instance to publish events.
+PORT | 8080 | Container port.
 
 # Events
 The service generates events to the Bus (messaging service) in response to API requests.
@@ -61,13 +62,13 @@ project-deletes | {projectId: *projectId*} | Project ID.
 | height     | Height of video frame |
 
 ## GET /?**{params}**
-Gets all public projects from all users.
+Gets projects.
 
 ### Request
 #### Header
 | Param   | Value |
 |----------|-------------|
-| Authorization     | "JWT [accessToken]" with admin role|
+| Authorization     | "JWT [accessToken]" with admin **role**|
 
 ### Query Param
 **{params}** - restricted version of OData protocol with one level brackets '(' ')' support. ([OData documentation](http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part2-url-conventions.html)).
