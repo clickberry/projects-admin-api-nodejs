@@ -75,7 +75,7 @@ Gets projects.
 
 | Param    | Description | Allowed Values| Example | 
 |----------|-------------|---------------|---------|
-| $filter    |  Filtering | **fields:** name, created, isPrivate, isHidden | $filter=created gte '2016-01-26T15:42:19Z' and (name ge 'b' or name eq 'abc') |
+| $filter    |  Filtering | **fields:** name, created, isPrivate, isHidden | $filter=created ge '2016-01-26T15:42:19Z' and (name ge 'b' or name eq 'abc') |
 | $orderby    |  Sorting | **fields:** name, created | $orderby=created asc,name desc|
 | $top    | Quantity return entities. | 0 < $top <= 100 | $top=30 |
 | $skip    | Quantity skip entities. | 0 < $skip <= 100 | $skip=60 |
